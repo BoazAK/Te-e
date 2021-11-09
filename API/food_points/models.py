@@ -55,7 +55,7 @@ class Publicity(models.Model):
     url = models.URLField('publicity website url')
     pub_date = models.DateTimeField('publication date', auto_now_add=True)
     mod_date = models.DateTimeField('modification date', auto_now=True)
-    publicity_disponibility = models.BooleanField('disponibility', default=False)
+    publicity_disponibility = models.BooleanField('disponibility', default=True)
 
     def __str__(self):
         return self.name
