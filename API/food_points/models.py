@@ -31,6 +31,16 @@ class Point(models.Model):
     def __str__(self):
         return self.name
 
+    def get_image1(self):
+        if self.image1:
+            return 'http://127.0.0.1:8000' + self.image1.url
+        return ''
+
+    def get_image2(self):
+        if self.image2:
+            return 'http://127.0.0.1:8000' + self.image2.url
+        return ''
+
     def was_published_recently(self):
         return self.creation_date >= timezone.now() - datetime.timedelta(days=1)
 
@@ -59,6 +69,11 @@ class Publicity(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_image(self):
+        if self.image:
+            return 'http://127.0.0.1:8000' + self.image.url
+        return ''
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
